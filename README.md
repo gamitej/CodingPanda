@@ -1,15 +1,15 @@
 ## CodingPanda Frontend
 
-### CodingPanda is a web app for practicing and solving coding and SQL challenges in an interactive, IDE-like environment.
+- CodingPanda is a web app for practicing and solving coding and SQL challenges in an interactive, IDE-like environment.
 
-## Features
+### Features
 
 1. Interactive Problem Solving: Solve coding and SQL problems with instant feedback.
 2. Track Progress: View your progress, achievements, and completed challenges.
 3. Responsive Design: Optimized for desktop and mobile views.
 4. Community Features: Join other users in a collaborative learning environment.
 
-## Tech Stack
+### Tech Stack
 
 1. Framework: React.js
 2. State Management: Redux
