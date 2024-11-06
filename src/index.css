@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root,
+html,
+body,
+.app {
+  margin: 0;
+  padding: 0;
+  background-color: #e4e0e1;
+}
+
+/* =============== Code Mirror CSS ================ */
+
+.ͼ1.cm-focused {
+  outline: none;
+}
+
+/* ================= Tailwind CSS ================= */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
