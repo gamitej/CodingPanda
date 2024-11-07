@@ -1,10 +1,18 @@
 import {
-  CodingLanguageTypes,
+  FontTypes,
+  ThemeTypes,
+  TabSizeType,
   SqlLanguageTypes,
+  CodingLanguageTypes,
 } from "@/components/editor/type";
 
+export type EditorSettingType = {
+  theme: ThemeTypes;
+  tabSize: TabSizeType;
+  fontSize: FontTypes;
+};
+
 export interface EditorSliceState {
-  theme: string;
   sql: {
     code: string;
     language: SqlLanguageTypes;
@@ -13,4 +21,5 @@ export interface EditorSliceState {
     code: string;
     language: CodingLanguageTypes;
   };
+  settings: EditorSettingType;
 }
