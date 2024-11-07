@@ -45,7 +45,7 @@ export const fontOptions: { value: FontTypes; label: string }[] = [
 
 export const editorBodyContent: {
   desc: string;
-  type: "font" | "theme" | "tab";
+  type: "fontSize" | "theme" | "tabSize";
   label: string;
   dropdownData: {
     name: string;
@@ -67,7 +67,7 @@ export const editorBodyContent: {
     },
   },
   {
-    type: "tab",
+    type: "tabSize",
     label: "Tab Size",
     desc: "Choose the width of a tab character.",
     dropdownData: {
@@ -77,7 +77,7 @@ export const editorBodyContent: {
     },
   },
   {
-    type: "font",
+    type: "fontSize",
     label: "Font Size",
     desc: "Choose your preferred font size for code editor.",
     dropdownData: {

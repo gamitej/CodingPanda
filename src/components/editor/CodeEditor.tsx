@@ -23,14 +23,17 @@ import { indentUnit } from "@codemirror/language";
 
 // type
 import { CodeEditorProps } from "./type";
+import { useSelector } from "react-redux";
+import { getEditorSetting } from "@/redux/editor/editorSlice";
 
 const CodeEditor: FC<CodeEditorProps> = ({
   setCode,
   code = "",
   type = "coding",
-  theme = "okaidia",
   language = "javascript",
 }) => {
+  const { theme, fontSize, tabSize } = useSelector(getEditorSetting);
+
   const selectedLanguage = useMemo(() => {
     if (type === "coding") {
       if (language === "cpp") return cpp();
@@ -63,12 +66,12 @@ const CodeEditor: FC<CodeEditorProps> = ({
     <CodeMirror
       value={code}
       height="50vh"
-      style={{ fontSize: "18px" }}
+      style={{ fontSize: `${fontSize}px` }}
       theme={selectedTheme}
       extensions={[
         selectedLanguage,
-        indentUnit.of("   "),
-        EditorState.tabSize.of(4),
+        indentUnit.of(" ".repeat(Number(tabSize))),
+        EditorState.tabSize.of(Number(tabSize)),
         // EditorState.changeFilter.of(() => true),
       ]}
       onChange={setCode}

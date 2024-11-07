@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // types
 import {
-  CodingLanguageTypes,
   SqlLanguageTypes,
+  CodingLanguageTypes,
 } from "@/components/editor/type";
 import { EditorSettingType, EditorSliceState } from "./type";
 
