@@ -19,7 +19,7 @@ const ExploreNavbar = () => {
         </Link>
       </div>
       <div>
-        <ul className="flex gap-6 items-center text-gray-700 text-md">
+        <ul className="flex gap-6 items-center text-gray-700 text-md select-none">
           <LightDarkMode />
           <Link to="online-ide" className="cursor-pointer">
             Online IDE

@@ -28,7 +28,7 @@ export const CodingLangDropdown = () => {
     <Dropdown<CodingLanguageTypes>
       name="languages"
       value={codingLang}
-      className="w-[150px]"
+      className="w-[150px] focus:ring-blue-400 focus:ring-2"
       label="select language"
       options={codingOptions}
       setDropdownChange={handleChange}
