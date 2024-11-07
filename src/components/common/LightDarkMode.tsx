@@ -30,6 +30,21 @@ const LightDarkMode = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const gutter = document.querySelector(".gutter") as HTMLElement | null;
+
+    if (gutter) {
+      if (!isLightMode) {
+        gutter.style.backgroundColor = "#1E293B";
+      } else {
+        gutter.style.backgroundColor = "#f1f0f0";
+      }
+    }
+  }, [isLightMode]);
+
+  /**
+   * TSX
+   */
   return (
     <Button
       size="icon"
