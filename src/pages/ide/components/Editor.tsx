@@ -11,7 +11,7 @@ const Editor = () => {
         type="coding"
         language="python"
         setCode={() => {}}
-        theme="githubLight"
+        codeEditorHeight="100%"
       />
     </div>
   );

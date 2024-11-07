@@ -31,4 +31,5 @@ type CodeEditorPropsCoding = CodeEditorPropsBase & {
 };
 
 // Combined type
-export type CodeEditorProps = CodeEditorPropsSql | CodeEditorPropsCoding;
+export type CodeEditorProps =
+  | { codeEditorHeight: string } & (CodeEditorPropsSql | CodeEditorPropsCoding);

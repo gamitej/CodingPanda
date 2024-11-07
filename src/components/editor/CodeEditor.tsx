@@ -31,6 +31,7 @@ const CodeEditor: FC<CodeEditorProps> = ({
   code = "",
   type = "coding",
   language = "javascript",
+  codeEditorHeight = "50vh",
 }) => {
   const { theme, fontSize, tabSize } = useSelector(getEditorSetting);
 
@@ -65,7 +66,7 @@ const CodeEditor: FC<CodeEditorProps> = ({
   return (
     <CodeMirror
       value={code}
-      height="50vh"
+      height={codeEditorHeight}
       style={{ fontSize: `${fontSize}px` }}
       theme={selectedTheme}
       extensions={[

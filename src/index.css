@@ -19,6 +19,17 @@ body,
   outline: none;
 }
 
+/* =============== Screen Split Gutter CSS ================ */
+
+.gutter {
+  background-color: #f1f0f0;
+}
+
+.gutter:hover {
+  cursor: col-resize;
+  background-color: #6e9fec;
+}
+
 /* ================= Tailwind CSS ================= */
 
 @tailwind base;
