@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+// components
+import { LightDarkMode } from "@/components";
 
 const ExploreNavbar = () => {
   /**
@@ -18,6 +20,7 @@ const ExploreNavbar = () => {
       </div>
       <div>
         <ul className="flex gap-6 items-center text-gray-700 text-md">
+          <LightDarkMode />
           <Link to="online-ide" className="cursor-pointer">
             Online IDE
           </Link>

@@ -3,6 +3,7 @@ import {
   CodingLangDropdown,
   SqlLangDropdown,
 } from "./common/LanguagesDropdown";
+import LightDarkMode from "./common/LightDarkMode";
 
 // fields
 import { Dropdown } from "./fields/Dropdown";
@@ -19,4 +20,5 @@ export {
   Editor,
   SelectOptions,
   SqlLangDropdown,
+  LightDarkMode,
 };
