@@ -7,19 +7,21 @@ const ExploreNavbar = () => {
    * TSX
    */
   return (
-    <div className="flex justify-between items-center h-[4rem] px-12 bg-white border-b">
+    <div className="flex justify-between items-center h-[4rem] px-12 bg-light dark:bg-dark-medium border-b">
       <div>
         <Link
           to="/"
-          className="text-xl text-gray-700 font-poppins"
+          className="text-xl text-gray-700 dark:text-white font-poppins"
           style={{ fontWeight: 600 }}
         >
           Coding
-          <span className="text-blue-600 ml-[1px]">Panda</span>
+          <span className="text-blue-600 ml-[1px] dark:text-blue-400">
+            Panda
+          </span>
         </Link>
       </div>
       <div>
-        <ul className="flex gap-6 items-center text-gray-700 text-md select-none">
+        <ul className="flex gap-6 items-center text-gray-700 dark:text-white text-md select-none">
           <LightDarkMode />
           <Link to="online-ide" className="cursor-pointer">
             Online IDE
