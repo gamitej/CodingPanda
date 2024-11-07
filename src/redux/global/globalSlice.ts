@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { GlobalState } from "./type";
 
-const initialState = {
+const initialState: GlobalState = {
   isLoggedIn: false,
-  isLightMode: false,
+  isLightMode: true,
 };
 
 const globalSlice = createSlice({
@@ -15,6 +16,10 @@ const globalSlice = createSlice({
   },
 });
 
+// Action creators
 export const { setIsLightMode } = globalSlice.actions;
+
+export const getIsLightMode = (state: { global: GlobalState }) =>
+  state.global.isLightMode;
 
 export default globalSlice.reducer;

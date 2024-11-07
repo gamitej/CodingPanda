@@ -1,14 +1,21 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // components
 import { Dropdown } from "../fields/Dropdown";
 // data & type
 import { codingOptions, sqlOptions } from "@/data/editor.data";
 import { CodingLanguageTypes, SqlLanguageTypes } from "../editor/type";
 // redux
-import { setCodingLanguage, setSqlLanguage } from "@/redux/editor/editorSlice";
+import {
+  getCodingLang,
+  getSqlLang,
+  setCodingLanguage,
+  setSqlLanguage,
+} from "@/redux/editor/editorSlice";
 
 export const CodingLangDropdown = () => {
   const dispatch = useDispatch();
+
+  const codingLang = useSelector(getCodingLang);
 
   const handleChange = (val: CodingLanguageTypes) => {
     dispatch(setCodingLanguage(val));
@@ -20,6 +27,7 @@ export const CodingLangDropdown = () => {
   return (
     <Dropdown<CodingLanguageTypes>
       name="languages"
+      value={codingLang}
       className="w-[150px]"
       label="select language"
       options={codingOptions}
@@ -31,6 +39,8 @@ export const CodingLangDropdown = () => {
 export const SqlLangDropdown = () => {
   const dispatch = useDispatch();
 
+  const sqlLang = useSelector(getSqlLang);
+
   const handleChange = (val: SqlLanguageTypes) => {
     dispatch(setSqlLanguage(val));
   };
@@ -41,6 +51,7 @@ export const SqlLangDropdown = () => {
   return (
     <Dropdown<SqlLanguageTypes>
       name="languages"
+      value={sqlLang}
       className="w-[150px]"
       options={sqlOptions}
       label="select language"

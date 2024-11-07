@@ -5,8 +5,9 @@ import {
   CodingLanguageTypes,
   SqlLanguageTypes,
 } from "@/components/editor/type";
+import { EditorSliceState } from "./type";
 
-const initialState = {
+const initialState: EditorSliceState = {
   theme: "",
   sql: {
     code: "",
@@ -35,5 +36,10 @@ const editorSlice = createSlice({
 });
 
 export const { setSqlLanguage, setCodingLanguage } = editorSlice.actions;
+
+export const getCodingLang = (state: { editor: EditorSliceState }) =>
+  state.editor.coding.language;
+export const getSqlLang = (state: { editor: EditorSliceState }) =>
+  state.editor.sql.language;
 
 export default editorSlice.reducer;
