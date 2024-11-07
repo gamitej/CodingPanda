@@ -35,9 +35,9 @@ const LightDarkMode = () => {
       size="icon"
       variant="ghost"
       onClick={handleClick}
-      className="rounded-full text-xl hover:dark:bg-gray-500 hover:text-yellow-400 duration-600 ease-in-out"
+      className="rounded-full  text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600  bg-light-dim dark:bg-dark-light text-xl hover:dark:bg-dark-light"
     >
-      {isLightMode ? (
+      {!isLightMode ? (
         <MdLightMode className="animate-spinOnce" />
       ) : (
         <MdNightlight className="animate-rotateSwing -rotate-45" />

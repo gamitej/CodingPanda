@@ -7,7 +7,7 @@ const ExploreNavbar = () => {
    * TSX
    */
   return (
-    <div className="flex justify-between items-center h-[4rem] px-12 bg-light dark:bg-dark-medium border-b">
+    <div className="flex justify-between items-center h-[4rem] px-[8rem] bg-light dark:bg-dark-medium border-b dark:border-b-gray-800">
       <div>
         <Link
           to="/"
@@ -20,13 +20,17 @@ const ExploreNavbar = () => {
           </span>
         </Link>
       </div>
-      <div>
-        <ul className="flex gap-6 items-center text-gray-700 dark:text-white text-md select-none">
-          <LightDarkMode />
+      <div className="flex items-center">
+        <ul className="flex gap-6 items-center text-gray-500  dark:text-gray-300 text-[15px] select-none pr-6 border-r dark:border-gray-700">
           <Link to="online-ide" className="cursor-pointer">
             Online IDE
           </Link>
-          <li className="cursor-pointer">Problems</li>
+          <Link to="/problems" className="cursor-pointer">
+            Problems
+          </Link>
+        </ul>
+        <ul className="flex gap-6 items-center  text-gray-700 dark:text-white text-md select-none pl-6">
+          <LightDarkMode />
         </ul>
       </div>
     </div>

@@ -13,7 +13,7 @@ const Header = () => {
         <span className="text-2xl text-blue-400">
           <CodeIcon />
         </span>{" "}
-        <p className="text-lg text-gray-700">Online IDE</p>
+        <p className="text-lg text-gray-700 dark:text-gray-300">Online IDE</p>
       </div>
       <div className="flex items-center gap-2">
         <CodingLangDropdown />

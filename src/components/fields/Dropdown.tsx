@@ -27,10 +27,12 @@ export function Dropdown<T extends string>({
 }: DropdownProps<T>) {
   return (
     <Select value={value} onValueChange={(val) => setDropdownChange(val as T)}>
-      <SelectTrigger className={className}>
+      <SelectTrigger
+        className={`${className} dark:bg-dark-light dark:border-gray-800 dark:text-gray-300 dark:focus:ring-gray-600 text-gray-700`}
+      >
         <SelectValue placeholder={label} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="dark:bg-dark-light text-gray-600 dark:text-gray-300">
         <SelectGroup>
           <SelectLabel>{name}</SelectLabel>
           {options.map(({ value, label }, index) => (

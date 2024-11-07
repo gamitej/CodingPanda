@@ -9,7 +9,7 @@ const OnlineCodingIde = () => {
    * TSX
    */
   return (
-    <div className="w-full h-[calc(100vh-4rem)] bg-white pb-6">
+    <div className="w-full h-[calc(100vh-4rem)] bg-white dark:bg-dark-medium pb-6">
       <Split
         minSize={500}
         sizes={[50, 50]}
