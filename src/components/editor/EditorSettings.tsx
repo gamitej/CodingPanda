@@ -18,16 +18,14 @@ const EditorSettings = () => {
    * TSX
    */
   return (
-    <div>
-      <Dialog open={isOpen} onOpenChange={handleEditorModal}>
-        <DialogTrigger asChild>
-          <Button variant="ghost" size="icon">
-            <SettingIcon className="text-2xl dark:text-gray-300 hover:bg-dark-light" />
-          </Button>
-        </DialogTrigger>
-        <EditorSettingBody />
-      </Dialog>
-    </div>
+    <Dialog open={isOpen} onOpenChange={handleEditorModal}>
+      <DialogTrigger asChild>
+        <Button variant="ghost" size="icon">
+          <SettingIcon className="text-2xl dark:text-gray-300 hover:bg-dark-light" />
+        </Button>
+      </DialogTrigger>
+      <EditorSettingBody />
+    </Dialog>
   );
 };
 

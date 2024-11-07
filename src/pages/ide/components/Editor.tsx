@@ -11,7 +11,7 @@ const Editor = () => {
         type="coding"
         language="python"
         setCode={() => {}}
-        codeEditorHeight="100%"
+        codeEditorHeight="80vh"
       />
     </div>
   );

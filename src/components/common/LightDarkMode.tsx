@@ -9,9 +9,10 @@ const LightDarkMode = () => {
   const isLightMode = useSelector(getIsLightMode);
 
   const handleClick = () => {
-    dispatch(setIsLightMode());
+    dispatch(setIsLightMode(!isLightMode));
 
     const newTheme = isLightMode ? "dark" : "light";
+
     sessionStorage.setItem("themeMode", newTheme);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
@@ -27,6 +28,7 @@ const LightDarkMode = () => {
         "dark",
         savedThemeMode === "dark"
       );
+      dispatch(setIsLightMode(savedThemeMode === "light"));
     }
   }, []);
 

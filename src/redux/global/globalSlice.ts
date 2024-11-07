@@ -10,8 +10,8 @@ const globalSlice = createSlice({
   name: "global",
   initialState,
   reducers: {
-    setIsLightMode: (state) => {
-      state.isLightMode = !state.isLightMode;
+    setIsLightMode: (state, { payload }: { payload: boolean }) => {
+      state.isLightMode = payload;
     },
   },
 });

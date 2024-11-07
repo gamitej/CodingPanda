@@ -22,7 +22,7 @@ const OnlineCodingIde = () => {
         direction="horizontal"
         className="flex h-[calc(100vh-4rem)]"
       >
-        <div className="h-full border-b border-r dark:border-r-gray-800">
+        <div className="h-full border-r dark:border-r-gray-800">
           <Header />
           <Editor />
         </div>

@@ -25,7 +25,9 @@ const EditorSettingBody = () => {
   return (
     <DialogContent className="w-full max-w-[90vw] sm:max-w-[425px] md:max-w-[600px]">
       <DialogHeader>
-        <DialogTitle>Editor Settings</DialogTitle>
+        <DialogTitle className="dark:text-gray-300">
+          Editor Settings
+        </DialogTitle>
       </DialogHeader>
 
       <div className="flex flex-col gap-4">
@@ -46,7 +48,7 @@ const EditorSettingBody = () => {
               className="flex justify-between items-center"
             >
               <div>
-                <Label>{label}</Label>
+                <Label className="dark:text-gray-300">{label}</Label>
                 <DialogDescription>{desc}</DialogDescription>
               </div>
               <div>
