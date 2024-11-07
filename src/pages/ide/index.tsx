@@ -11,7 +11,7 @@ const OnlineCodingIde = () => {
   return (
     <div className="w-full h-[calc(100vh-4rem)] bg-white pb-6">
       <Split
-        minSize={100}
+        minSize={500}
         sizes={[50, 50]}
         gutterSize={5}
         snapOffset={30}
