@@ -91,7 +91,7 @@ export const editorBodyContent: {
   },
 ];
 
-export const startingTemplates: { [key in CodingLanguageTypes]: string } = {
+export const startingTemplates: Record<CodingLanguageTypes, string> = {
   python: `# Python 3 Template\n\ndef main():\n    print("Hello, World!")\n\nif __name__ == "__main__":\n    main()`,
 
   java: `// Java Template\n\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}`,
