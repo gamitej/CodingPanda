@@ -19,7 +19,7 @@ const initialState: EditorSliceState = {
   },
   settings: {
     tabSize: "4",
-    fontSize: "18",
+    fontSize: "14",
     theme: "githubLight",
   },
 };
@@ -28,15 +28,18 @@ const editorSlice = createSlice({
   name: "editor",
   initialState,
   reducers: {
+    // code editor setting event handler
     setEditorSetting: (
       state,
       { payload }: { payload: Partial<EditorSettingType> }
     ) => {
       state.settings = { ...state.settings, ...payload };
     },
+    // sql language event handler
     setSqlLanguage: (state, { payload }: { payload: SqlLanguageTypes }) => {
       state.sql.language = payload;
     },
+    // coding language event handler
     setCodingLanguage: (
       state,
       { payload }: { payload: CodingLanguageTypes }
@@ -44,6 +47,7 @@ const editorSlice = createSlice({
       state.coding.language = payload;
       state.coding.code = startingTemplates[payload];
     },
+    // user input code event handler
     setCodeForCoding: (state, { payload }: { payload: string }) => {
       state.coding.code = payload;
     },
