@@ -4,44 +4,47 @@ import {
   TabSizeType,
   SqlLanguageTypes,
   CodingLanguageTypes,
+  codingLanguageLabels,
+  tabSizeLabels,
+  fontSizeLabels,
+  sqlLanguageLabels,
+  themeLabels,
 } from "@/components/editor/type";
 
-export const codingOptions: { value: CodingLanguageTypes; label: string }[] = [
-  { value: "cpp", label: "C++" },
-  { value: "java", label: "Java" },
-  { value: "python", label: "Python" },
-  { value: "javascript", label: "Javascript" },
-];
+export const codingOptions = Object.entries(codingLanguageLabels).map(
+  ([value, label]) => ({
+    value: value as CodingLanguageTypes,
+    label,
+  })
+);
 
-export const sqlOptions: { value: SqlLanguageTypes; label: string }[] = [
-  { value: "mysql", label: "MySql" },
-  { value: "oracle", label: "Oracle" },
-  { value: "postgresql", label: "PostgreSql" },
-];
+export const sqlLanguageOptions = Object.entries(sqlLanguageLabels).map(
+  ([value, label]) => ({
+    value: value as SqlLanguageTypes,
+    label,
+  })
+);
 
-export const tabOptions: { value: TabSizeType; label: string }[] = [
-  { value: "2", label: "2" },
-  { value: "4", label: "4" },
-  { value: "8", label: "8" },
-];
+export const tabSizeOptions = Object.entries(tabSizeLabels).map(
+  ([value, label]) => ({
+    value: value as TabSizeType,
+    label,
+  })
+);
 
-export const themeOptions: { value: ThemeTypes; label: string }[] = [
-  { value: "okaidia", label: "Okaidia" },
-  { value: "xcodeLight", label: "XcodeLight" },
-  { value: "githubLight", label: "GithubLight" },
-  { value: "duotoneLight", label: "DuotoneLight" },
-];
+export const themeOptions = Object.entries(themeLabels).map(
+  ([value, label]) => ({
+    value: value as ThemeTypes,
+    label,
+  })
+);
 
-export const fontOptions: { value: FontTypes; label: string }[] = [
-  { value: "10", label: "10" },
-  { value: "12", label: "12" },
-  { value: "14", label: "14" },
-  { value: "16", label: "16" },
-  { value: "18", label: "18" },
-  { value: "20", label: "20" },
-  { value: "22", label: "22" },
-  { value: "24", label: "24" },
-];
+export const fontSizeOptions = Object.entries(fontSizeLabels).map(
+  ([value, label]) => ({
+    value: value as FontTypes,
+    label,
+  })
+);
 
 export const editorBodyContent: {
   desc: string;
@@ -72,7 +75,7 @@ export const editorBodyContent: {
     desc: "Choose the width of a tab character.",
     dropdownData: {
       name: "Size",
-      options: tabOptions,
+      options: tabSizeOptions,
       label: "select tab size...",
     },
   },
@@ -82,8 +85,18 @@ export const editorBodyContent: {
     desc: "Choose your preferred font size for code editor.",
     dropdownData: {
       name: "Size",
-      options: fontOptions,
+      options: fontSizeOptions,
       label: "select font size..",
     },
   },
 ];
+
+export const startingTemplates: { [key in CodingLanguageTypes]: string } = {
+  python: `# Python 3 Template\n\ndef main():\n    print("Hello, World!")\n\nif __name__ == "__main__":\n    main()`,
+
+  java: `// Java Template\n\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}`,
+
+  javascript: `// JavaScript Template\n\nfunction main() {\n    console.log("Hello, World!");\n}\n\nmain();`,
+
+  cpp: `// C++ Template\n\n#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}`,
+};

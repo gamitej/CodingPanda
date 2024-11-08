@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 // components
 import { Dropdown } from "../fields/Dropdown";
 // data & type
-import { codingOptions, sqlOptions } from "@/data/editor.data";
+import { codingOptions, sqlLanguageOptions } from "@/data/editor.data";
 import { CodingLanguageTypes, SqlLanguageTypes } from "../editor/type";
 // redux
 import {
@@ -28,10 +28,10 @@ export const CodingLangDropdown = () => {
     <Dropdown<CodingLanguageTypes>
       name="languages"
       value={codingLang}
-      className="w-[150px] focus:ring-blue-400 focus:ring-2"
       label="select language"
       options={codingOptions}
       setDropdownChange={handleChange}
+      className="w-[150px] focus:ring-gray-200 focus:ring-2"
     />
   );
 };
@@ -52,10 +52,10 @@ export const SqlLangDropdown = () => {
     <Dropdown<SqlLanguageTypes>
       name="languages"
       value={sqlLang}
-      className="w-[150px]"
-      options={sqlOptions}
       label="select language"
+      options={sqlLanguageOptions}
       setDropdownChange={handleChange}
+      className="w-[150px] focus:ring-gray-200 focus:ring-2"
     />
   );
 };
