@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// types
+// data & types
 import {
   SqlLanguageTypes,
   CodingLanguageTypes,
 } from "@/components/editor/type";
+import { startingTemplates } from "@/data/editor.data";
 import { EditorSettingType, EditorSliceState } from "./type";
 
 const initialState: EditorSliceState = {
@@ -13,8 +14,8 @@ const initialState: EditorSliceState = {
     language: "mysql",
   },
   coding: {
-    code: "",
-    language: "python",
+    code: startingTemplates.javascript,
+    language: "javascript",
   },
   settings: {
     tabSize: "4",
@@ -33,7 +34,6 @@ const editorSlice = createSlice({
     ) => {
       state.settings = { ...state.settings, ...payload };
     },
-
     setSqlLanguage: (state, { payload }: { payload: SqlLanguageTypes }) => {
       state.sql.language = payload;
     },
@@ -42,12 +42,20 @@ const editorSlice = createSlice({
       { payload }: { payload: CodingLanguageTypes }
     ) => {
       state.coding.language = payload;
+      state.coding.code = startingTemplates[payload];
+    },
+    setCodeForCoding: (state, { payload }: { payload: string }) => {
+      state.coding.code = payload;
     },
   },
 });
 
-export const { setSqlLanguage, setCodingLanguage, setEditorSetting } =
-  editorSlice.actions;
+export const {
+  setSqlLanguage,
+  setCodingLanguage,
+  setEditorSetting,
+  setCodeForCoding,
+} = editorSlice.actions;
 
 export const getCodingLang = (state: { editor: EditorSliceState }) =>
   state.editor.coding.language;
@@ -55,5 +63,7 @@ export const getSqlLang = (state: { editor: EditorSliceState }) =>
   state.editor.sql.language;
 export const getEditorSetting = (state: { editor: EditorSliceState }) =>
   state.editor.settings;
+export const getCodingCode = (state: { editor: EditorSliceState }) =>
+  state.editor.coding.code;
 
 export default editorSlice.reducer;

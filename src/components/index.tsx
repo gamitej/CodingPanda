@@ -12,14 +12,16 @@ import SelectOptions from "./fields/SelectOptions";
 // editor
 import Editor from "./editor";
 import CodeEditor from "./editor/CodeEditor";
+import CodeDownload from "./common/CodeDownload";
 import EditorSettings from "./editor/EditorSettings";
 
 // models
 import DialogBox from "./models/DialogBox";
 
 export {
-  CodingLangDropdown,
+  CodeDownload,
   CodeEditor,
+  CodingLangDropdown,
   Dropdown,
   DialogBox,
   Editor,

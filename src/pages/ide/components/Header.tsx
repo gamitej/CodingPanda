@@ -1,6 +1,5 @@
 // components
-import CodeDownload from "./CodeDownload";
-import { CodingLangDropdown, EditorSettings } from "@/components";
+import { CodingLangDropdown, CodeDownload, EditorSettings } from "@/components";
 // icons
 import { CodeIcon } from "@/utils/Icons";
 

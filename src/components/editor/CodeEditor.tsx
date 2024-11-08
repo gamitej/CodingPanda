@@ -1,29 +1,17 @@
 import { FC, useMemo } from "react";
+import { useSelector } from "react-redux";
 import CodeMirror from "@uiw/react-codemirror";
-
-// languages
-import { cpp } from "@codemirror/lang-cpp";
-import { sql } from "@codemirror/lang-sql";
-import { java } from "@codemirror/lang-java";
-import { python } from "@codemirror/lang-python";
-import { javascript } from "@codemirror/lang-javascript";
-
-// theme
-import { bespin } from "@uiw/codemirror-theme-bespin";
-import { okaidia } from "@uiw/codemirror-theme-okaidia";
-import { dracula } from "@uiw/codemirror-theme-dracula";
-import { vscodeDark } from "@uiw/codemirror-theme-vscode";
-import { xcodeDark, xcodeLight } from "@uiw/codemirror-theme-xcode";
-import { githubDark, githubLight } from "@uiw/codemirror-theme-github";
-import { duotoneDark, duotoneLight } from "@uiw/codemirror-theme-duotone";
 
 // configuration
 import { EditorState } from "@codemirror/state";
 import { indentUnit } from "@codemirror/language";
 
-// type
-import { CodeEditorProps } from "./type";
-import { useSelector } from "react-redux";
+// data & type
+import { getTheme } from "./data/Theme";
+import { CodeEditorProps, LanguagesTypes } from "./type";
+import { getSelectedLanguageForm } from "./data/Langauges";
+
+// redux
 import { getEditorSetting } from "@/redux/editor/editorSlice";
 
 const CodeEditor: FC<CodeEditorProps> = ({
@@ -36,28 +24,11 @@ const CodeEditor: FC<CodeEditorProps> = ({
   const { theme, fontSize, tabSize } = useSelector(getEditorSetting);
 
   const selectedLanguage = useMemo(() => {
-    if (type === "coding") {
-      if (language === "cpp") return cpp();
-      if (language === "java") return java();
-      if (language === "python") return python();
-      if (language === "javascript") return javascript();
-      return javascript();
-    }
-    return sql();
-  }, [language]);
+    return getSelectedLanguageForm({ type, language } as LanguagesTypes);
+  }, [language, type]);
 
   const selectedTheme = useMemo(() => {
-    if (theme === "bespin") return bespin;
-    if (theme === "okaidia") return okaidia;
-    if (theme === "dracula") return dracula;
-    if (theme === "xcodeDark") return xcodeDark;
-    if (theme === "githubDark") return githubDark;
-    if (theme === "vscodeDark") return vscodeDark;
-    if (theme === "xcodeLight") return xcodeLight;
-    if (theme === "githubLight") return githubLight;
-    if (theme === "duotoneDark") return duotoneDark;
-    if (theme === "duotoneLight") return duotoneLight;
-    return duotoneLight;
+    return getTheme(theme);
   }, [theme]);
 
   /**

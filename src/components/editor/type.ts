@@ -69,22 +69,25 @@ export const themeLabels: Record<ThemeTypes, string> = {
   xcodeLight: "Xcode Light",
 };
 
+export type LanguagesTypes =
+  | { type: "coding"; language: CodingLanguageTypes }
+  | { type: "sql"; language: SqlLanguageTypes };
+
 interface CodeEditorPropsBase {
   code: string;
   theme?: ThemeTypes;
-  setCode: (code: SqlLanguageTypes | CodingLanguageTypes) => void;
+  codeEditorHeight: string;
+  setCode: (code: string) => void;
 }
 
-type CodeEditorPropsSql = CodeEditorPropsBase & {
+interface CodeEditorPropsSql extends CodeEditorPropsBase {
   type: "sql";
   language: SqlLanguageTypes;
-};
+}
 
-type CodeEditorPropsCoding = CodeEditorPropsBase & {
+interface CodeEditorPropsCoding extends CodeEditorPropsBase {
   type: "coding";
   language: CodingLanguageTypes;
-};
+}
 
-// Combined type
-export type CodeEditorProps =
-  | { codeEditorHeight: string } & (CodeEditorPropsSql | CodeEditorPropsCoding);
+export type CodeEditorProps = CodeEditorPropsSql | CodeEditorPropsCoding;

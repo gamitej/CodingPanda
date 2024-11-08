@@ -1,13 +1,29 @@
-import { useSelector } from "react-redux";
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // components
 import { CodeEditor } from "@/components";
 // data
-import { startingTemplates } from "@/data/editor.data";
 // redux
-import { getCodingLang } from "@/redux/editor/editorSlice";
+import {
+  getCodingCode,
+  getCodingLang,
+  setCodeForCoding,
+} from "@/redux/editor/editorSlice";
 
 const Editor = () => {
-  const lang = useSelector(getCodingLang);
+  const dispatch = useDispatch();
+
+  const code = useSelector(getCodingCode);
+  const language = useSelector(getCodingLang);
+
+  const handleCodeChange = useCallback(
+    (code: string) => {
+      dispatch(setCodeForCoding(code));
+    },
+    [dispatch]
+  );
+
+  console.log({ code });
 
   /**
    * TSX
@@ -16,10 +32,10 @@ const Editor = () => {
     <div>
       <CodeEditor
         type="coding"
-        language="python"
-        setCode={() => {}}
+        code={code}
+        language={language}
         codeEditorHeight="80vh"
-        code={startingTemplates[lang]}
+        setCode={handleCodeChange}
       />
     </div>
   );
