@@ -10,6 +10,7 @@ const OnlineCodingIde = () => {
    */
   return (
     <div className="w-full h-[calc(100vh-4rem)] bg-white dark:bg-dark-medium pb-6">
+      {/*========= for larger and bigger screen =========*/}
       <Split
         minSize={500}
         sizes={[50, 50]}
@@ -20,7 +21,7 @@ const OnlineCodingIde = () => {
         expandToMin={false}
         gutterAlign="center"
         direction="horizontal"
-        className="flex h-[calc(100vh-4rem)]"
+        className="hidden lg:flex h-[calc(100vh-4rem)]"
       >
         <div className="h-full border-r dark:border-r-gray-800">
           <Header />
@@ -28,6 +29,15 @@ const OnlineCodingIde = () => {
         </div>
         <Output />
       </Split>
+
+      {/*========= for medium and smaller screen =========*/}
+      <div className="flex flex-col lg:hidden dark:bg-dark-medium">
+        <div className="h-full border-b dark:border-b-gray-800">
+          <Header />
+          <Editor />
+        </div>
+        <Output />
+      </div>
     </div>
   );
 };
