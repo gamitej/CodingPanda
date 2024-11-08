@@ -6,6 +6,14 @@ import OutputBox from "./OutputBox";
 const Output = () => {
   const isLoading = false;
 
+  const output = {
+    output: "0\n1\n2\n3\n4\n",
+    time: "0.0100",
+    memory: "8208",
+    stderr:
+      '  File "/mnt/sol.py", line 3\n    for i in range(5:\n                    ^\nSyntaxError: invalid syntax\n',
+  };
+
   /**
    * TSX
    */
@@ -28,7 +36,7 @@ const Output = () => {
         </Button>
       </div>
       <div className="px-3 py-4">
-        <OutputBox isLoading={isLoading} />
+        <OutputBox isLoading={isLoading} {...output} />
       </div>
     </div>
   );

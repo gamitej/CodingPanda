@@ -23,8 +23,6 @@ const Editor = () => {
     [dispatch]
   );
 
-  console.log({ code });
-
   /**
    * TSX
    */
@@ -34,7 +32,7 @@ const Editor = () => {
         type="coding"
         code={code}
         language={language}
-        codeEditorHeight="80vh"
+        codeEditorHeight="85vh"
         setCode={handleCodeChange}
       />
     </div>

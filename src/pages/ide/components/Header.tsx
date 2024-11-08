@@ -8,7 +8,7 @@ const Header = () => {
    * TSX
    */
   return (
-    <div className="pb-5 pt-4 px-4 border-b flex justify-between">
+    <div className="pb-5 pt-4 px-4 border-b dark:border-b-gray-800 flex justify-between">
       <div className="px-2 flex gap-2 items-center">
         <span className="text-2xl text-blue-400">
           <CodeIcon />
