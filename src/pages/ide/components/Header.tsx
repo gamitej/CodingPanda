@@ -1,4 +1,5 @@
 // components
+import CodeDownload from "./CodeDownload";
 import { CodingLangDropdown, EditorSettings } from "@/components";
 // icons
 import { CodeIcon } from "@/utils/Icons";
@@ -15,7 +16,8 @@ const Header = () => {
         </span>{" "}
         <p className="text-lg text-gray-700 dark:text-gray-300">Online IDE</p>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
+        <CodeDownload />
         <CodingLangDropdown />
         <EditorSettings />
       </div>

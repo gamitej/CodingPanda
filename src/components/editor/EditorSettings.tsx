@@ -20,7 +20,11 @@ const EditorSettings = () => {
   return (
     <Dialog open={isOpen} onOpenChange={handleEditorModal}>
       <DialogTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="hover:dark:bg-dark-light"
+        >
           <SettingIcon className="text-2xl dark:text-gray-300 hover:bg-dark-light" />
         </Button>
       </DialogTrigger>

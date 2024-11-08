@@ -1,4 +1,4 @@
-import { Loader2, LucideProps } from "lucide-react";
+import { Loader2, LucideProps, FileDown } from "lucide-react";
 
 import { LuCode2 } from "react-icons/lu";
 import { IconType } from "react-icons/lib";
@@ -20,6 +20,7 @@ const LucideIcons: Record<
   >
 > = {
   LoadingSpinner: Loader2,
+  FileDownload: FileDown,
 };
 
 const CodeIcon = Icons.Code;
@@ -27,5 +28,12 @@ const SettingIcon = Icons.Setting;
 const ArrowDownIcon = Icons.ArrowDown;
 
 const LoadingSpinner = LucideIcons.LoadingSpinner;
+const FileDownloadIcon = LucideIcons.FileDownload;
 
-export { ArrowDownIcon, CodeIcon, SettingIcon, LoadingSpinner };
+export {
+  ArrowDownIcon,
+  CodeIcon,
+  FileDownloadIcon,
+  SettingIcon,
+  LoadingSpinner,
+};

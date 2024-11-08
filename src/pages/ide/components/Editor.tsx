@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 // components
 import { CodeEditor } from "@/components";
-// redux
+// data
 import { startingTemplates } from "@/data/editor.data";
+// redux
 import { getCodingLang } from "@/redux/editor/editorSlice";
 
 const Editor = () => {

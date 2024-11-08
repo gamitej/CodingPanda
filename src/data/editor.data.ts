@@ -100,3 +100,10 @@ export const startingTemplates: Record<CodingLanguageTypes, string> = {
 
   cpp: `// C++ Template\n\n#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}`,
 };
+
+export const fileExtensions: { [key in CodingLanguageTypes]: string } = {
+  cpp: ".cpp",
+  java: ".java",
+  python: ".py",
+  javascript: ".js",
+};
