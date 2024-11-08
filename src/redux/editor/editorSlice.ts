@@ -14,8 +14,8 @@ const initialState: EditorSliceState = {
     language: "mysql",
   },
   coding: {
-    code: startingTemplates.javascript,
     language: "javascript",
+    code: startingTemplates.javascript,
   },
   settings: {
     tabSize: "4",
