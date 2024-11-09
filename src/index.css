@@ -21,9 +21,9 @@ body,
 
 /* =============== Screen Split Gutter CSS ================ */
 
-.gutter {
+/* .gutter {
   background-color: #f1f0f0;
-}
+} */
 
 .gutter:hover {
   cursor: col-resize;
