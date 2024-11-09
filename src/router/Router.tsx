@@ -11,6 +11,9 @@ const IdePage = lazy(() => import("@/pages/ide"));
 const SqlPage = lazy(() => import("@/pages/sql"));
 const ProfilePage = lazy(() => import("@/pages/profile"));
 
+// page not found
+const NotFoundPage = lazy(() => import("@/pages/notFound/PageNotFound"));
+
 const Router = () => {
   const routes = useRoutes([
     {
@@ -41,11 +44,7 @@ const Router = () => {
     },
     {
       path: "*",
-      element: (
-        <div className="h-[75vh] w-full flex justify-center items-center text-[5rem] text-slate-400">
-          404
-        </div>
-      ),
+      element: <NotFoundPage />,
     },
   ]);
 
