@@ -48,7 +48,7 @@ const Router = () => {
               element: <AdminPage />,
             },
             {
-              path: "sql/question-setup",
+              path: "setup-question",
               element: <AdminQuestionSetupPage />,
             },
           ],

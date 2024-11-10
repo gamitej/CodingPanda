@@ -26,7 +26,10 @@ export function Dropdown<T extends string>({
   setDropdownChange,
 }: DropdownProps<T>) {
   return (
-    <Select value={value} onValueChange={(val) => setDropdownChange(val as T)}>
+    <Select
+      value={value ?? ""}
+      onValueChange={(val) => setDropdownChange(val as T)}
+    >
       <SelectTrigger
         className={`${className} dark:bg-dark-light dark:border-gray-800 dark:text-gray-300 dark:focus:ring-gray-600 text-gray-700`}
       >

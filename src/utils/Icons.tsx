@@ -1,4 +1,4 @@
-import { Loader2, LucideProps, FileDown } from "lucide-react";
+import { ScanEye, Loader2, LucideProps, FileDown } from "lucide-react";
 
 import { LuCode2 } from "react-icons/lu";
 import { IconType } from "react-icons/lib";
@@ -21,18 +21,21 @@ const LucideIcons: Record<
 > = {
   LoadingSpinner: Loader2,
   FileDownload: FileDown,
+  EyeScan: ScanEye,
 };
 
 const CodeIcon = Icons.Code;
 const SettingIcon = Icons.Setting;
 const ArrowDownIcon = Icons.ArrowDown;
 
+const EyeScanIcon = LucideIcons.EyeScan;
 const LoadingSpinner = LucideIcons.LoadingSpinner;
 const FileDownloadIcon = LucideIcons.FileDownload;
 
 export {
   ArrowDownIcon,
   CodeIcon,
+  EyeScanIcon,
   FileDownloadIcon,
   SettingIcon,
   LoadingSpinner,
