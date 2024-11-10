@@ -5,7 +5,7 @@ const AdminLayout = () => {
    * TSX
    */
   return (
-    <div>
+    <div className="min-h-[calc(100vh-4rem)] dark:bg-dark-medium">
       <Outlet />
     </div>
   );
