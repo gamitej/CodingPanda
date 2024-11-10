@@ -4,7 +4,7 @@ import { QuestionSetupStateType } from "./type";
 
 const initialState: QuestionSetupStateType = {
   question: {
-    name: "",
+    title: "",
     text: "",
     type: "coding",
     premium: false,

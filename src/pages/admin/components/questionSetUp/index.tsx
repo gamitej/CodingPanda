@@ -1,3 +1,4 @@
+import Header from "./Header";
 import MarkdownEditorComponent from "./MarkdownEditorComponent";
 
 const QuestionSetUp = () => {
@@ -6,6 +7,7 @@ const QuestionSetUp = () => {
    */
   return (
     <div>
+      <Header />
       <MarkdownEditorComponent />
     </div>
   );

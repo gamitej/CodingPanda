@@ -5,7 +5,7 @@ import {
 } from "@/data/question/question.type";
 
 interface QuestionSetupType {
-  name: string;
+  title: string;
   text: string;
   premium: boolean;
   difficultyMode: DifficultyModeType | undefined;
