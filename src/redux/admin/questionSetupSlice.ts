@@ -1,31 +1,41 @@
 import { createSlice } from "@reduxjs/toolkit";
 // type
-import { QuestionSetupState } from "./type";
+import { QuestionSetupStateType } from "./type";
 
-const initialState: QuestionSetupState = {
+const initialState: QuestionSetupStateType = {
   question: {
+    name: "",
     text: "",
-    difficultyMode: "",
-    companyTag: "",
-    premium: "",
-    topic: "",
-    type: "",
+    type: "coding",
+    premium: false,
+    topics: undefined,
+    companyTags: undefined,
+    difficultyMode: undefined,
   },
 };
-const globalSlice = createSlice({
-  name: "global",
+const QuestionSetupSlice = createSlice({
+  name: "questionSetup",
   initialState,
   reducers: {
-    setIsLightMode: (state, { payload }: { payload: boolean }) => {
-      state.isLightMode = payload;
-      ThemeManager.toggleThemeModeSession(state.isLightMode);
+    setQuestionType: (state, { payload }: { payload: "sql" | "coding" }) => {
+      state.question.text = "";
+      state.question.type = payload;
+    },
+    setQuestionOptions: (
+      state,
+      { payload }: { payload: Partial<QuestionSetupStateType> }
+    ) => {
+      state.question = { ...state.question, ...payload };
     },
   },
 });
 
 // action creators
-export const { setIsLightMode } = globalSlice.actions;
-export const getIsLightMode = (state: { global: GlobalState }) =>
-  state.global.isLightMode;
+export const { setQuestionType } = QuestionSetupSlice.actions;
 
-export default globalSlice.reducer;
+//
+export const getQuestionType = (state: {
+  questionSetup: QuestionSetupStateType;
+}) => state.questionSetup.question.type;
+
+export default QuestionSetupSlice.reducer;

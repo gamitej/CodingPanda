@@ -1,10 +1,14 @@
-const QuestionSetUp = () => {
-  console.log("hi");
+import MarkdownEditorComponent from "./MarkdownEditorComponent";
 
+const QuestionSetUp = () => {
   /**
    * TSX
    */
-  return <div>QuestionSetUp</div>;
+  return (
+    <div>
+      <MarkdownEditorComponent />
+    </div>
+  );
 };
 
 export default QuestionSetUp;

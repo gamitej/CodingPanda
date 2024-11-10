@@ -5,6 +5,7 @@ import {
 } from "./common/LanguagesDropdown";
 import Backdrop from "./common/BackDrop";
 import LightDarkMode from "./common/LightDarkMode";
+import MarkdownOverview from "./common/MardownOverview";
 
 // fields
 import { Dropdown } from "./fields/Dropdown";
@@ -29,6 +30,7 @@ export {
   Editor,
   EditorSettings,
   LightDarkMode,
+  MarkdownOverview,
   SelectOptions,
   SqlLangDropdown,
 };
