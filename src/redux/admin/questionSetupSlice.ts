@@ -1,13 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 // type
-import { QuestionSetupStateType } from "./type";
+import {
+  QuestionSetupType,
+  QuestionSetupStateType,
+  SqlQuestionType,
+  CodingQuestionType,
+} from "./type";
 
 const initialState: QuestionSetupStateType = {
   question: {
     title: "",
-    text: "",
     type: "coding",
     premium: false,
+    questionText: "",
     topics: undefined,
     companyTags: undefined,
     difficultyMode: undefined,
@@ -17,13 +22,15 @@ const QuestionSetupSlice = createSlice({
   name: "questionSetup",
   initialState,
   reducers: {
-    setQuestionType: (state, { payload }: { payload: "sql" | "coding" }) => {
-      state.question.text = "";
-      state.question.type = payload;
-    },
-    setQuestionOptions: (
+    setQuestionType: (
       state,
-      { payload }: { payload: Partial<QuestionSetupStateType> }
+      { payload }: { payload: SqlQuestionType | CodingQuestionType }
+    ) => {
+      state.question = { ...state.question, ...payload };
+    },
+    setQuestionStateOptions: (
+      state,
+      { payload }: { payload: Partial<QuestionSetupType> }
     ) => {
       state.question = { ...state.question, ...payload };
     },
@@ -31,11 +38,12 @@ const QuestionSetupSlice = createSlice({
 });
 
 // action creators
-export const { setQuestionType } = QuestionSetupSlice.actions;
+export const { setQuestionType, setQuestionStateOptions } =
+  QuestionSetupSlice.actions;
 
 //
-export const getQuestionType = (state: {
+export const getQuestionStateData = (state: {
   questionSetup: QuestionSetupStateType;
-}) => state.questionSetup.question.type;
+}) => state.questionSetup.question;
 
 export default QuestionSetupSlice.reducer;

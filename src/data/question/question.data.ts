@@ -27,3 +27,8 @@ export const codingTopicsOptions = Object.entries(CodingTopicsLabels).map(
     label,
   })
 );
+
+export const typeOptions: { label: string; value: "sql" | "coding" }[] = [
+  { label: "Sql", value: "sql" },
+  { label: "Coding", value: "coding" },
+];

@@ -1,27 +1,29 @@
 import {
   SqlTopicsType,
-  DifficultyModeType,
   CodingTopicsType,
+  DifficultyModeType,
 } from "@/data/question/question.type";
 
-interface QuestionSetupType {
+export type QuestionSetupType = {
   title: string;
-  text: string;
   premium: boolean;
+  questionText: string;
   difficultyMode: DifficultyModeType | undefined;
   companyTags: "google" | "meta" | "microsoft" | undefined;
-}
+};
 
-interface SqlQuestionType extends QuestionSetupType {
+export type SqlQuestionType = {
   type: "sql";
   topics: SqlTopicsType | undefined;
-}
+};
 
-interface CodingQuestionType extends QuestionSetupType {
+export type CodingQuestionType = QuestionSetupType & {
   type: "coding";
   topics: CodingTopicsType | undefined;
-}
+};
 
 export interface QuestionSetupStateType {
-  question: SqlQuestionType | CodingQuestionType;
+  question:
+    | (QuestionSetupType & CodingQuestionType)
+    | (QuestionSetupType & SqlQuestionType);
 }

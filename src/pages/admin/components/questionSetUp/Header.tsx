@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // components
 import { Dropdown } from "@/components";
 // shadcn-ui
@@ -5,25 +7,46 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 // data
 import {
-  difficultyModeOptions,
   sqlTopicsOptions,
+  difficultyModeOptions,
+  codingTopicsOptions,
+  typeOptions,
 } from "@/data/question/question.data";
+// redux
+import {
+  getQuestionStateData,
+  setQuestionStateOptions,
+  setQuestionType,
+} from "@/redux/admin/questionSetupSlice";
+import {
+  SqlQuestionType,
+  QuestionSetupType,
+  CodingQuestionType,
+} from "@/redux/admin/type";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const stateData = useSelector(getQuestionStateData);
+
+  const handleQuestionSetupChange = (props: Partial<QuestionSetupType>) => {
+    dispatch(setQuestionStateOptions(props));
+  };
+
   /**
    * TSX
    */
   return (
     <div className="h-[5.5rem] px-6 flex justify-between items-center">
       <div className="flex flex-col gap-3">
-        <Label className="text-gray-700 dark:text-gray-300">Question :</Label>
+        <Label className="text-gray-700 dark:text-gray-300">Title :</Label>
         <Input
-          className="dark:bg-dark-light dark:border-gray-800 focus:outline-none focus:ring-0 focus:border-none py-1 w-[50rem]"
-          placeholder="write question name here..."
           type="text"
+          className="dark:bg-dark-light dark:border-gray-800 focus:outline-none focus:ring-0 focus:border-none py-1 w-[50rem]"
+          placeholder="enter question title..."
         />
       </div>
       <div className="flex justify-center items-center gap-4">
+        <LanguagetypeAndTopicDropDown />
         <div className="flex flex-col gap-3">
           <Label className="text-gray-700 dark:text-gray-300">
             Difficulty :
@@ -33,24 +56,76 @@ const Header = () => {
             label="difficulty"
             className="w-[8rem]"
             options={difficultyModeOptions}
-            setDropdownChange={() => {}}
-          />
-        </div>
-        <div className="flex flex-col gap-3">
-          <Label className="text-gray-700 dark:text-gray-300">
-            Select Sql Topic :
-          </Label>
-          <Dropdown
-            name=""
-            className="w-[10rem]"
-            label="select topics..."
-            options={sqlTopicsOptions}
-            setDropdownChange={() => {}}
+            value={stateData.difficultyMode}
+            setDropdownChange={(value) =>
+              handleQuestionSetupChange({ difficultyMode: value })
+            }
           />
         </div>
       </div>
     </div>
   );
 };
+
+function LanguagetypeAndTopicDropDown() {
+  const dispatch = useDispatch();
+
+  const stateData = useSelector(getQuestionStateData);
+
+  const handleTypeChange = (
+    props: Partial<SqlQuestionType | CodingQuestionType>
+  ) => {
+    if (stateData.type === "sql") {
+      const data = { type: stateData.type } as SqlQuestionType;
+      dispatch(setQuestionType({ ...props, ...data }));
+    }
+    const data = { type: stateData.type } as CodingQuestionType;
+    dispatch(setQuestionType({ ...props, ...data }));
+  };
+
+  const langOptions = useMemo(() => {
+    return stateData.type === "sql" ? sqlTopicsOptions : codingTopicsOptions;
+  }, [stateData.type]);
+
+  /**
+   * TSX
+   */
+  return (
+    <div className="flex justify-center items-center gap-4">
+      <div className="flex flex-col gap-3">
+        <Label className="text-gray-700 dark:text-gray-300">
+          Select Type :
+        </Label>
+        <Dropdown
+          name=""
+          className="w-[10rem]"
+          options={typeOptions}
+          label="select topics..."
+          value={stateData.type}
+          setDropdownChange={(value) =>
+            handleTypeChange({
+              type: value,
+              topics: undefined,
+            } as SqlQuestionType)
+          }
+        />
+      </div>
+
+      <div className="flex flex-col gap-3">
+        <Label className="text-gray-700 dark:text-gray-300">
+          Select {stateData.type} topic :
+        </Label>
+        <Dropdown
+          name=""
+          className="w-[10rem]"
+          options={langOptions}
+          label="select topics..."
+          value={stateData.topics}
+          setDropdownChange={(value) => handleTypeChange({ topics: value })}
+        />
+      </div>
+    </div>
+  );
+}
 
 export default Header;
