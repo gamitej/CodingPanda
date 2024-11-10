@@ -1,15 +1,21 @@
-import { useState } from "react";
-import Markdown from "react-markdown";
-import MarkdownEditor from "react-markdown-editor-lite";
-import "react-markdown-editor-lite/lib/index.css";
+import { useDispatch, useSelector } from "react-redux";
+// libs
 import remarkGfm from "remark-gfm";
+import Markdown from "react-markdown";
+import "react-markdown-editor-lite/lib/index.css";
+import MarkdownEditor from "react-markdown-editor-lite";
+// redux
+import {
+  getMarkDownEditorText,
+  setMarkDownEditorText,
+} from "@/redux/admin/markDownSlice";
 
 const MarkdownEditorComponent = () => {
-  const [markdownContent, setMarkdownContent] = useState("");
+  const dispatch = useDispatch();
+  const markdownContent = useSelector(getMarkDownEditorText);
 
-  // Function to handle content changes in the editor
-  const handleEditorChange = ({ text }: any) => {
-    setMarkdownContent(text);
+  const handleEditorChange = ({ text }: { text: string }) => {
+    dispatch(setMarkDownEditorText(text));
   };
 
   /**
@@ -19,7 +25,7 @@ const MarkdownEditorComponent = () => {
     <MarkdownEditor
       value={markdownContent}
       onChange={handleEditorChange}
-      style={{ height: "calc(100vh - 4rem)" }}
+      style={{ height: "calc(100vh - 10rem)" }}
       renderHTML={(text) => {
         return <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>;
       }}

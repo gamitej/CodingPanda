@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // components
 import { Dropdown } from "@/components";
+import PreviewModal from "./PreviewModal";
 // shadcn-ui
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,8 +24,6 @@ import {
   getQuestionStateData,
   setQuestionStateOptions,
 } from "@/redux/admin/questionSetupSlice";
-import { Button } from "@/components/ui/button";
-import { EyeScanIcon } from "@/utils/Icons";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -65,10 +64,7 @@ const Header = () => {
           />
         </div>
         <div>
-          <Button className="bg-gray-600 p-6">
-            <EyeScanIcon />
-            Preview
-          </Button>
+          <PreviewModal />
         </div>
       </div>
     </div>

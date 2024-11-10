@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 // type
 import {
-  QuestionSetupType,
-  QuestionSetupStateType,
   SqlQuestionType,
+  QuestionSetupType,
   CodingQuestionType,
+  QuestionSetupStateType,
 } from "./type";
 
 const initialState: QuestionSetupStateType = {
