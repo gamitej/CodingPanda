@@ -11,6 +11,13 @@ const IdePage = lazy(() => import("@/pages/ide"));
 const SqlPage = lazy(() => import("@/pages/sql"));
 const ProfilePage = lazy(() => import("@/pages/profile"));
 
+// admin
+const AdminLayoutPage = lazy(() => import("@/pages/admin/components/layout"));
+const AdminPage = lazy(() => import("@/pages/admin"));
+const AdminQuestionSetupPage = lazy(
+  () => import("@/pages/admin/components/questionSetUp")
+);
+
 // page not found
 const NotFoundPage = lazy(() => import("@/pages/notFound/PageNotFound"));
 
@@ -21,16 +28,30 @@ const Router = () => {
       element: <ExploreLayout />,
       children: [
         {
-          path: "/",
+          index: true,
           element: <ExploreMain />,
         },
         {
-          path: "/profile",
+          path: "profile",
           element: <ProfilePage />,
         },
         {
-          path: "/online-ide",
+          path: "online-ide",
           element: <IdePage />,
+        },
+        {
+          path: "admin",
+          element: <AdminLayoutPage />,
+          children: [
+            {
+              index: true,
+              element: <AdminPage />,
+            },
+            {
+              path: "sql/question-setup",
+              element: <AdminQuestionSetupPage />,
+            },
+          ],
         },
       ],
     },
